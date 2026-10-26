@@ -1,0 +1,51 @@
+{
+    "title": "Test 1",
+    "description": "Three hard real-time tasks are correctly scheduled and executed. All tasks complete their execution within their expected time and before their deadlines, with no deadline misses.",
+    "data": {
+        "ulSubFrameMsLength": 20,
+        "ulMajorFrameSubFramesCount": 5,
+        "xTasks": [
+            {
+                "name": "Task A",
+                "type": "HARD",
+                "readyMs": 4,
+                "deadlineMS": 10,
+                "ulTaskRealDurationMs": 4
+            },
+            {
+                "name": "Task B",
+                "type": "HARD",
+                "readyMs": 14,
+                "deadlineMS": 20,
+                "ulTaskRealDurationMs": 4
+            },
+            {
+                "name": "Task C",
+                "type": "HARD",
+                "readyMs": 23,
+                "deadlineMS": 31,
+                "ulTaskRealDurationMs": 7
+            }
+        ],
+        "expectedOutput": [
+            "[ 0 ms ] Scheduler activated",
+            "[ 4 ms ] Scheduler activated",
+            "[ 4 ms ] Task A start",
+            "[ 8 ms ] Task A end",
+            "[ 8 ms ] Scheduler activated",
+            "[ 14 ms ] Scheduler activated",
+            "[ 14 ms ] Task B start",
+            "[ 18 ms ] Task B end",
+            "[ 18 ms ] Scheduler activated",
+            "[ 20 ms ] Scheduler activated",
+            "[ 23 ms ] Scheduler activated",
+            "[ 23 ms ] Task C start",
+            "[ 30 ms ] Task C end",
+            "[ 30 ms ] Scheduler activated",
+            "[ 40 ms ] Scheduler activated",
+            "[ 60 ms ] Scheduler activated",
+            "[ 80 ms ] Scheduler activated",
+            "[ 100 ms ] Major Frame Reset"
+        ]
+    }
+}

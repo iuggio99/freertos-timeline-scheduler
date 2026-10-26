@@ -1,0 +1,52 @@
+{
+    "title": "Test 5",
+    "description": "Critical scenario. A Hard task has a Deadline, but due to a bug it takes a long time causing the miss of the deadline.The system kills the task",
+    "data": {
+        "ulSubFrameMsLength": 20,
+        "ulMajorFrameSubFramesCount": 5,
+        "xTasks": [
+            {
+                "name": "Task A",
+                "type": "HARD",
+                "readyMs": 4,
+                "deadlineMS": 10,
+                "ulTaskRealDurationMs": 4
+            },
+            {
+                "name": "Task B",
+                "type": "HARD",
+                "readyMs": 11,
+                "deadlineMS": 16,
+                "ulTaskRealDurationMs": 3
+            },
+            {
+                "name": "Task C",
+                "type": "HARD",
+                "readyMs": 22,
+                "deadlineMS": 25,
+                "ulTaskRealDurationMs": 5
+            }
+        ],
+        "expectedOutput": [
+            "[ 0 ms ] Scheduler activated", 
+            "[ 4 ms ] Scheduler activated", 
+            "[ 5 ms ] Task A start", 
+            "[ 9 ms ] Task A end", 
+            "[ 9 ms ] Scheduler activated", 
+            "[ 11 ms ] Scheduler activated", 
+            "[ 11 ms ] Task B start", 
+            "[ 15 ms ] Task B end", 
+            "[ 15 ms ] Scheduler activated", 
+            "[ 20 ms ] Scheduler activated", 
+            "[ 22 ms ] Scheduler activated", 
+            "[ 22 ms ] Task C start", 
+            "[ 25 ms ] Task C deadline missed", 
+            "[ 25 ms ] Task C Killed", 
+            "[ 25 ms ] Scheduler activated", 
+            "[ 40 ms ] Scheduler activated", 
+            "[ 60 ms ] Scheduler activated", 
+            "[ 80 ms ] Scheduler activated", 
+            "[ 100 ms ] Major Frame Reset" 
+        ]
+    }
+}

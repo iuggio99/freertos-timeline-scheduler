@@ -1,0 +1,105 @@
+{
+    "title": "Test 6",
+    "description": "At the end of the Major Frame, the scheduler resets the system state. All tasks are cleared and execution restarts from the first subframe of the next Major Frame.",
+    "data": {
+        "ulSubFrameMsLength": 20,
+        "ulMajorFrameSubFramesCount": 5,
+        "xTasks": [
+            {
+                "name": "Task A",
+                "type": "SOFT",
+                "readyMs": 4,
+                "deadlineMS": 12,
+                "ulTaskRealDurationMs": 6
+            },
+            {
+                "name": "Task B",
+                "type": "HARD",
+                "readyMs": 9,
+                "deadlineMS": 15,
+                "ulTaskRealDurationMs": 3
+            },
+            {
+                "name": "Task C",
+                "type": "HARD",
+                "readyMs": 20,
+                "deadlineMS": 30,
+                "ulTaskRealDurationMs": 5
+            },
+            {
+                "name": "Task D",
+                "type": "SOFT",
+                "readyMs": 21,
+                "deadlineMS": 35,
+                "ulTaskRealDurationMs": 5
+            },
+            {
+                "name": "Task E",
+                "type": "HARD",
+                "readyMs": 40,
+                "deadlineMS": 48,
+                "ulTaskRealDurationMs": 4
+            },
+            {
+                "name": "Task F",
+                "type": "SOFT",
+                "readyMs": 40,
+                "deadlineMS": 55,
+                "ulTaskRealDurationMs": 6
+            },
+            {
+                "name": "Task G",
+                "type": "HARD",
+                "readyMs": 50,
+                "deadlineMS": 60,
+                "ulTaskRealDurationMs": 4
+            },
+            {
+                "name": "Task H",
+                "type": "SOFT",
+                "readyMs": 42,
+                "deadlineMS": 60,
+                "ulTaskRealDurationMs": 3
+            }
+        ],
+        "expectedOutput": [
+            "[ 0 ms ] Scheduler activated",
+            "[ 4 ms ] Scheduler activated",
+            "[ 4 ms ] Task A start",
+            "[ 9 ms ] Scheduler activated",
+            "[ 9 ms ] Task A preempted",
+            "[ 9 ms ] Task B start",
+            "[ 12 ms ] Task B end",
+            "[ 12 ms ] Scheduler activated",
+            "[ 12 ms ] Task A start",
+            "[ 13 ms ] Task A end",
+            "[ 13 ms ] Scheduler activated",
+            "[ 20 ms ] Scheduler activated",
+            "[ 20 ms ] Task C start",
+            "[ 26 ms ] Task C end",
+            "[ 26 ms ] Scheduler activated",
+            "[ 26 ms ] Task D start",
+            "[ 31 ms ] Task D end",
+            "[ 31 ms ] Scheduler activated",
+            "[ 40 ms ] Scheduler activated",
+            "[ 40 ms ] Task E start",
+            "[ 44 ms ] Task E end",
+            "[ 44 ms ] Scheduler activated",
+            "[ 44 ms ] Task F start",
+            "[ 50 ms ] Scheduler activated",
+            "[ 50 ms ] Task F preempted",
+            "[ 50 ms ] Task G start",
+            "[ 54 ms ] Task G end",
+            "[ 54 ms ] Scheduler activated",
+            "[ 55 ms ] Task F start",
+            "[ 55 ms ] Task F end",
+            "[ 55 ms ] Scheduler activated",
+            "[ 55 ms ] Task H start",
+            "[ 58 ms ] Task H end",
+            "[ 58 ms ] Scheduler activated",
+            "[ 60 ms ] Scheduler activated",
+            "[ 80 ms ] Scheduler activated",
+            "[ 100 ms ] Major Frame Reset"
+        ]
+    }
+}
